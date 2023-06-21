@@ -7,7 +7,7 @@ repository = "https://github.com/khonsulabs/cityhasher"
 license = "MIT OR Apache-2.0"
 keywords = ["cityhash", "hash", "hashmap", "hasher"]
 categories = ["database-implementations"]
-
+rust-version = "1.60.0"
 
 [features]
 default = ["disable-bounds-checking", "std"]
