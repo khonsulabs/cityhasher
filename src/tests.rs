@@ -31,8 +31,12 @@ fn setup() -> [u8; DATA_SIZE] {
 
 fn test(expected: &[u64; 16], data: &[u8]) {
     std::println!("Testing {}", data.len());
-    assert_eq!(expected[15], crate::hash::<u32>(data) as u64);
+    // 32-bit hash
+    let hash: u32 = crate::hash(data);
+    assert_eq!(expected[15], hash as u64);
+    // 64-bit hash
     assert_eq!(expected[0], crate::hash(data));
+    // 64-bit hash with seed
     assert_eq!(expected[1], crate::hash_with_seed(data, KSEED0));
 }
 

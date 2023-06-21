@@ -18,7 +18,9 @@ fn all_benches(c: &mut Criterion) {
         rng.fill_bytes(&mut data);
 
         group.bench_function(BenchmarkId::new("cityhasher", size), |b| {
-            b.iter(|| cityhasher::hash::<u32>(black_box(&data)))
+            b.iter(|| {
+                let _: u32 = cityhasher::hash(black_box(&data));
+            })
         });
         #[cfg(feature = "nightly")]
         group.bench_function(BenchmarkId::new("cityhash-sys", size), |b| {
@@ -37,7 +39,9 @@ fn all_benches(c: &mut Criterion) {
         rng.fill_bytes(&mut data);
 
         group.bench_function(BenchmarkId::new("cityhasher", size), |b| {
-            b.iter(|| cityhasher::hash::<u64>(black_box(&data)))
+            b.iter(|| {
+                let _: u64 = cityhasher::hash(black_box(&data));
+            })
         });
         #[cfg(feature = "nightly")]
         group.bench_function(BenchmarkId::new("cityhash-sys", size), |b| {
