@@ -1,0 +1,22 @@
+[package]
+name = "benchmarks"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+
+[features]
+unsafe = ["cityhasher/disable-bounds-checking"]
+nightly = ["dep:cityhash-sys"]                  # cityhash-sys currently requires nightly
+
+[[bench]]
+name = "comparison"
+harness = false
+
+[dependencies]
+cityhasher = { path = ".." }
+crc32fast = "1"
+cityhash-sys = { version = "1", optional = true }
+criterion = { version = "0.5", features = ["html_reports"] }
+rand = "0.8"
+fnv = "1.0.7"

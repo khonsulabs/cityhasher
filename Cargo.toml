@@ -1,0 +1,29 @@
+[package]
+name = "cityhasher"
+description = "A pure Rust implementation of Google's CityHash hashing algorithm"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/khonsulabs/cityhasher"
+license = "MIT OR Apache-2.0"
+keywords = ["cityhash", "hash", "hashmap", "hasher"]
+categories = ["database-implementations"]
+
+
+[features]
+default = ["disable-bounds-checking", "std"]
+# When this feature is enabled, unsafe code is used to access the data that is
+# being hashed. Assuming there are no bugs in the algorithm, this is completely
+# safe to do. This does not alter any other behavior of the algorithm. This
+# crate passes the same test suite that the original library utilizes regardless
+# of whether this feature is enabled.
+disable-bounds-checking = []
+std = []
+
+[dependencies]
+
+[workspace]
+members = ["benchmarks"]
+
+[profile.bench]
+lto = true
+opt-level = 3
