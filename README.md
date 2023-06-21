@@ -1,5 +1,9 @@
 # cityhasher
 
+[![crate version](https://img.shields.io/crates/v/cityhasher.svg)](https://crates.io/crates/cityhasher)
+[![Live Build Status](https://img.shields.io/github/actions/workflow/status/khonsulabs/cityhasher/rust.yml?branch=main)](https://github.com/khonsulabs/cityhasher/actions?query=workflow:Tests)
+[![Documentation for `main`](https://img.shields.io/badge/docs-main-informational)](https://khonsulabs.github.io/cityhasher/main/cityhasher/)
+
 A pure Rust implementation of [CityHash](https://github.com/google/cityhash), a
 hashing algorithm developed at Google by Geoff Pike and Jyrki Alakuijala that
 has impressive performance and hashing quality.

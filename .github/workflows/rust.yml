@@ -28,9 +28,9 @@ jobs:
       - name: Install Rust
         uses: hecrj/setup-rust-action@v1
         with:
-          rust-version: 1.60
+          rust-version: "1.60.0"
       - name: Run unit tests
-        run: cargo test --all-features
+        run: cargo test --all-targets --all-features
 
   build-nostd:
     name: Build on no_std target (thumbv7em-none-eabi)
