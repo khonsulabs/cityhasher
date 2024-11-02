@@ -66,6 +66,7 @@ impl<'a> Input<'a> {
     }
 
     fn hash32_len_0_to_4(&self) -> u32 {
+        #[cfg(not(feature = "disable-bounds-checking"))]
         assert!(self.len() <= 4); // This helps the optimizer with automatic loop unrolling.
         let mut b = 0_u32;
         let mut c = 9;

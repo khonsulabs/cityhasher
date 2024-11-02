@@ -1,3 +1,6 @@
+use std::vec;
+use std::vec::Vec;
+
 use crate::K0;
 extern crate std;
 
@@ -12,10 +15,11 @@ fn suite() {
         let offset = i * i;
         test(&TESTDATA[i], &data[offset..offset + i]);
     }
+    test(&TESTDATA[299], &data);
 }
 
-fn setup() -> [u8; DATA_SIZE] {
-    let mut data = [0_u8; DATA_SIZE];
+fn setup() -> Vec<u8> {
+    let mut data = vec![0_u8; DATA_SIZE];
     let mut a = 9_u64;
     let mut b = 777;
     for (i, data) in data.iter_mut().enumerate() {
